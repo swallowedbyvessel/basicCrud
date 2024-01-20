@@ -1,4 +1,4 @@
-package crud.br.view;
+package com.br.view;
 
 public class Crud {
 
