@@ -1,6 +1,6 @@
 package com.br.model;
 
-public class Livro {
+public abstract class Livro {
 	private String nome;
 	private String descricao;
 	protected double valor;

@@ -5,44 +5,62 @@ import java.util.List;
 
 import com.br.model.Livro;
 import com.br.model.LivroDigital;
+import com.br.model.LivroFisico;
 
 public class Gerenciador {
 
 	private List<Livro> livros;
+	private List<LivroFisico> livrosFisicos;
 	private List<LivroDigital> livrosDigitais;
+	private SLivros sLivros;
 		
 	public Gerenciador() {
 		super();
-		livros = new ArrayList<>();
-		livrosDigitais = new ArrayList<>();
+		this.livros = new ArrayList<>();
+		this.livrosFisicos = new ArrayList<>();
+		this.livrosDigitais = new ArrayList<>();
+		this.sLivros = new SLivros();
 	}
 	
-	public void adcionarLivro(Livro livro) {
-		livros.add(livro);
-		System.out.println(livro.getNome()+ " cadastrado(a) com sucesso!");
-	}
-	
-	public void deletarLivro(String titulo) {
+	public void listarLivros() {
+		String listaDeLivros = "";
 		for (int i = 0; i < livros.size(); i++) {
-			if(livros.get(i).equals(titulo)) {
-				livros.remove(i);
-				System.err.println("Livro removido do sistema.");
+			Livro livro = livros.get(i);
+			if(livro.equals("")) {
+				System.out.println("Não há livros no sistema.");
 			} else {
-				System.err.println("Livro infelizmente não existe no sistema.");
+				listaDeLivros += "Nome: "+livro.getNome()+ " \nValor: "+livro.getValor()+
+						" \nISBN: "+livro.getIsbn()+ " \nAutor: "+livro.getAutor();
 			}
 		}
+		System.out.println(listaDeLivros);
 	}
-	
-	public List<Livro> getLivros() {
+
+	public List<Livro> getLivros(){
 		return livros;
 	}
-	public void setLivros(List<Livro> livros) {
-		this.livros = livros;
+	
+	public List<LivroFisico> getLivrosFisicos() {
+		return livrosFisicos;
 	}
+
+	public void setLivrosFisicos(List<LivroFisico> livrosFisicos) {
+		this.livrosFisicos = livrosFisicos;
+	}
+
 	public List<LivroDigital> getLivrosDigitais() {
 		return livrosDigitais;
 	}
+
 	public void setLivrosDigitais(List<LivroDigital> livrosDigitais) {
 		this.livrosDigitais = livrosDigitais;
+	}
+
+	public SLivros getsLivros() {
+		return sLivros;
+	}
+
+	public void setsLivros(SLivros sLivros) {
+		this.sLivros = sLivros;
 	}
 }

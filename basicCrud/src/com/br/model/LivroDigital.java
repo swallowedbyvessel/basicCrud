@@ -1,15 +1,12 @@
 package com.br.model;
 
 public class LivroDigital extends Livro {
-	private boolean impresso;
+	private boolean marcaDigital;
 
-	public boolean isImpresso() {
-		return impresso;
+	public boolean isMarcaDigital() {
+		return marcaDigital;
 	}
-
-	public void setImpresso(boolean impresso) {
-		this.impresso = impresso;
+	public void setMarcaDigital(boolean marcaDigital) {
+		this.marcaDigital = marcaDigital;
 	}
-
-	
 }
